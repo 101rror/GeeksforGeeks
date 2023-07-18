@@ -1,4 +1,4 @@
-<h2><a href="https://practice.geeksforgeeks.org/problems/reverse-coding2452/1">Reverse Coding</a></h2><h3>Difficulty Level : Easy</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">You will be given an integer <strong>n</strong>, your task is to return the sum of all natural number less than or equal to <strong>n</strong>.</span></p>
+<h2><a href="https://practice.geeksforgeeks.org/problems/reverse-coding2452/0">Reverse Coding</a></h2><h3>Difficulty Level : Easy</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">You will be given an integer <strong>n</strong>, your task is to return the sum of all natural number less than or equal to <strong>n</strong>.</span></p>
 <p><span style="font-size: 18px;">As the answer could be very large, return <strong>answer modulo 10<sup>9</sup>+7</strong>.</span></p>
 <p><span style="font-size: 18px;"><strong>Example 1:</strong></span></p>
 <pre><strong><span style="font-size: 18px;">Input</span>:</strong>
