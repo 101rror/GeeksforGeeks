@@ -1,15 +1,19 @@
+#User function Template for python3
 class Solution:
-	def kLargest(self,arr, n, k):
+	def kLargest(self, arr, n, k):
 		arr = sorted(arr, reverse = True)
-		ans = []
+		res = []
 		
-		for i in range(0, k):
-		    ans.append(arr[i])
+		for i in range(0, n):
+		    res.append(arr[i])
 		    
+		    if(i == k - 1):
+		        break
 		    
-		return ans
-		
-		
+		return res
+		    
+
+
 #{ 
  # Driver Code Starts
 #Initial Template for Python 3
