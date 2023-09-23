@@ -2,21 +2,24 @@
 
 class Solution:
     def equilibriumPoint(self,A, N):
+        first = 0
+        last = sum(A)
+        
+        if(N == 1):
+            return 1
+            
         i = 0
-        j = N - 1
-        sum1 = A[i]
-        sum2 = A[j]
-        while(i < j):
-            if(sum1 < sum2):
-                sum1 += A[i + 1]
-                i += 1
-            else:
-                sum2 += A[j - 1]
-                j -= 1
-        if(sum1 == sum2):
-            return i + 1
-        else:
-            return -1
+        
+        while(i < N):
+            last -= A[i]
+            
+            if(first == last):
+                return (i + 1)
+                
+            first += A[i]
+            i += 1
+            
+        return -1
 
 
 #{ 
