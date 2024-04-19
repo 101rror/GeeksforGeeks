@@ -1,7 +1,7 @@
 #User function Template for python3
 class Solution:
 	def hasArrayTwoCandidates(self,arr, n, x):
-	    dict = set()
+	    seen = set()
 	    
 		for i in arr:
 		    check = x - i
