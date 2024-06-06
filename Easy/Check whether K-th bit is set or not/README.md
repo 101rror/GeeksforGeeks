@@ -11,5 +11,6 @@
 <pre><span style="font-size: 18px;"><strong>Input</strong>: <br>N = 500<br>K = 3
 <strong>Output</strong>: <br>No
 <strong>Explanation</strong>: <br>Binary representation of 500 is 111110100, in which 3rd index bit from LSB is not set. So, return false.</span></pre>
+  
 <div><strong><span style="font-size: 18px;">Your task:</span></strong></div>
 <div><span style="font-size: 18px;">You don't have to read input or print anything. Your task is&nbsp;to complete the function<strong> checkKthbit </strong>that takes <strong>n </strong>and<strong> k </strong>as parameters and returns<strong> </strong>either <strong>true</strong>(if kth bit is set) or <strong>false</strong>(if kth bit is not set).</span><br><span style="font-size: 18px;"><strong><br>Expected Time Complexity:</strong>&nbsp;O(1).<br><strong>Expected Auxiliary Space:</strong>&nbsp;O(1).</span><br><br><span style="font-size: 18px;"><strong>Constraints:</strong><br>1 ≤ N ≤ 10<sup>9</sup><br>0 ≤ K ≤ 31</span></div></div><p><span style=font-size:18px><strong>Company Tags : </strong><br><code>Microsoft</code>&nbsp;<br><p><span style=font-size:18px><strong>Topic Tags : </strong><br><code>Bit Magic</code>&nbsp;<code>Data Structures</code>&nbsp;
