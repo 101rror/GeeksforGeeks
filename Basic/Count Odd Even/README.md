@@ -3,6 +3,7 @@
 <pre><span style="font-size: 18px;"><strong>Input:</strong>
 N = 5
 A[] = 1 2 3 4 5
+  
 <strong>Output:
 </strong>3 2
 <strong>Explanation:
