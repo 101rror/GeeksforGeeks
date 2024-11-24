@@ -2,17 +2,21 @@
 
 class Solution:
     def maxSubArraySum(self,arr):
-        ans = arr[0]
-        check = 0
+        currsum = 0
+        maxsum = float('-inf')
         
         for num in arr:
-            check += num
-            ans = max(ans, check)
+            currsum += num
+            maxsum = max(maxsum, currsum)
             
-            if check < 0:
-                check = 0
+            if currsum < 0:
+                currsum = 0
                 
-        return ans
+        return maxsum
+        
+        
+        
+        
 
 #{ 
  # Driver Code Starts
