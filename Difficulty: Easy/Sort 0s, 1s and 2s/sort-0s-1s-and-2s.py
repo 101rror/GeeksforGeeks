@@ -1,26 +1,28 @@
-class Solution:
-    def sort012(self, arr):
-        def sort(arr):
-            low = 0
-            mid = 0
-            high = len(arr) - 1
-
-            while mid <= high:
-                if arr[mid] == 0:
-                    arr[low], arr[mid] = arr[mid], arr[low]
-                    low += 1
-                    mid += 1
-                elif arr[mid] == 1:
-                    mid += 1
-                else:
-                    arr[high], arr[mid] = arr[mid], arr[high]
-                    high -= 1
-                    
-        return sort(arr)
-
-
 #{ 
  # Driver Code Starts
+
+# } Driver Code Ends
+class Solution:
+    def sort012(self, arr):
+        zero = arr.count(0)
+        one = arr.count(1)
+        two = arr.count(2)
+        
+        for i in range(len(arr)):
+            arr[i] = 0
+            
+        for i in range(zero, len(arr)):
+            arr[i] = 1
+            
+        for i in range(zero + one, len(arr)):
+            arr[i] = 2
+            
+        
+        return arr
+        
+
+#{ 
+ # Driver Code Starts.
 def main():
     t = int(input().strip())  # Read the number of test cases
     ob = Solution()
@@ -33,8 +35,8 @@ def main():
         ob.sort012(arr)  # Sort the array
 
         print(' '.join(map(str, arr)))  # Print the sorted array
-
-
+        print("~")
+        
 if __name__ == "__main__":
     main()
 
