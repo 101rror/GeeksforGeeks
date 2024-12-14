@@ -2,10 +2,10 @@
 
 class Solution:
     def search(self,arr,key):
-        for i in range(len(arr)):
-            if arr[i] == key:
-                return i
-        
+        for idx, num in enumerate(arr):
+            if num == key:
+                return idx
+                
         return -1
 
 
@@ -21,5 +21,6 @@ if __name__ == '__main__':
         k = int(input())
         ob = Solution()
         print(ob.search(A, k))
+        print("~")
 
 # } Driver Code Ends
