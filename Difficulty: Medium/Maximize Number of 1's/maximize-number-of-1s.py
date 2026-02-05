@@ -1,17 +1,17 @@
 class Solution:
     def maxOnes(self, arr, k):
-        left = 0
-        count0, maxlen = 0, 0
+        n = len(arr)
+        left = zero = mx = 0
 
-        for right in range(len(arr)):
+        for right in range(n):
             if arr[right] == 0:
-                count0 += 1
+                zero += 1
 
-            while count0 > k:
+            while zero > k:
                 if arr[left] == 0:
-                    count0 -= 1
+                    zero -= 1
                 left += 1
 
-            maxlen = max(maxlen, right - left + 1)
+            mx = max(mx, right - left + 1)
 
-        return maxlen
+        return mx
