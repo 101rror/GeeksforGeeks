@@ -1,61 +1,55 @@
 from math import lcm
 
-class SegmentTree:
-    def __init__(self, arr):
-        self.n = len(arr)
-        self.tree = [1] * (4 * self.n)
-        self.build(arr, 1, 0, self.n - 1)
-        
-
-    def build(self, arr, idx, l, r):
-        if l == r:
-            self.tree[idx] = arr[l]
-            return
-
-        mid = (l + r) // 2
-
-        self.build(arr, idx * 2, l, mid)
-        self.build(arr, idx * 2 + 1, mid + 1, r)
-
-        self.tree[idx] = lcm(self.tree[idx * 2], self.tree[idx * 2 + 1])
-        
-
-    def update(self, idx, l, r, pos, val):
-        if l == r:
-            self.tree[idx] = val
-            return
-
-        mid = (l + r) // 2
-
-        if pos <= mid:
-            self.update(idx * 2, l, mid, pos, val)
-        else:
-            self.update(idx * 2 + 1, mid + 1, r, pos, val)
-
-        self.tree[idx] = lcm(self.tree[idx * 2], self.tree[idx * 2 + 1])
-        
-
-    def query(self, idx, l, r, ql, qr):
-        if qr < l or r < ql:
-            return 1
-
-        if ql <= l and r <= qr:
-            return self.tree[idx]
-
-        mid = (l + r) // 2
-
-        return lcm(self.query(idx * 2, l, mid, ql, qr), self.query(idx * 2 + 1, mid + 1, r, ql, qr))
-
-
 class Solution:
     def RangeLCMQuery(self, arr, queries):
-        st = SegmentTree(arr)
+        n = len(arr)
+        seg = [1] * (4 * n)
+
+        def build(i, l, r):
+            if l == r:
+                seg[i] = arr[l]
+                return
+
+            m = (l + r) // 2
+
+            build(i * 2, l, m)
+            build(i * 2 + 1, m + 1, r)
+
+            seg[i] = lcm(seg[i * 2], seg[i * 2 + 1])
+
+        def update(i, l, r, p, v):
+            if l == r:
+                seg[i] = v
+                return
+
+            m = (l + r) // 2
+
+            if p <= m:
+                update(i * 2, l, m, p, v)
+            else:
+                update(i * 2 + 1, m + 1, r, p, v)
+
+            seg[i] = lcm(seg[i * 2], seg[i * 2 + 1])
+
+        def query(i, l, r, ql, qr):
+            if qr < l or ql > r:
+                return 1
+
+            if ql <= l and r <= qr:
+                return seg[i]
+
+            m = (l + r) // 2
+
+            return lcm(query(i * 2, l, m, ql, qr), query(i * 2 + 1, m + 1, r, ql, qr))
+
+        build(1, 0, n - 1)
+
         ans = []
 
         for q in queries:
             if q[0] == 1:
-                st.update(1, 0, st.n - 1, q[1], q[2])
+                update(1, 0, n - 1, q[1], q[2])
             else:
-                ans.append(st.query(1, 0, st.n - 1, q[1], q[2]))
+                ans.append(query(1, 0, n - 1, q[1], q[2]))
 
         return ans
